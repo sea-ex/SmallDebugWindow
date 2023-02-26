@@ -47,18 +47,6 @@ function MainWindow()
   w.Separator()
   w.Label("Debug")
   w.Checkbox("Enable FPS", "_fpsEnabled", "DebugVisualizer.ShowFrameTimes(_fpsEnabled)", DebugVisualizer.GetShowFrameTimes())
-  w.Checkbox(
-      "Enable Texture Streaming Stats",
-      "_textureStreamingStatsEnabled",
-      "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)",
-      DebugVisualizer.GetShowTextureStreamingStats()
-  )
-  w.Checkbox(
-      "Enable Texture Streaming",
-      "_textureStreamingEnabled",
-      "DebugVisualizer.SetTextureStreaming(_textureStreamingEnabled)",
-      DebugVisualizer.GetTextureStreaming()
-  )
   w.Button("Toggle Localization Debug", "DebugVisualizer.ToggleLocalizationDebugMode()")
   w.Button("Dump VAB parts list into a CSV file", "DebugVisualizer.QAPrintPartsInBuildersCSVs()")
 
@@ -84,7 +72,32 @@ function MainWindow()
   end
 
   w.Separator()
-  w.Label("VFX")
+  w.Label("Rendering and VFX")
+
+  w.Checkbox(
+      "Enable Texture Streaming Stats",
+      "_textureStreamingStatsEnabled",
+      "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)",
+      DebugVisualizer.GetShowTextureStreamingStats()
+  )
+  w.Checkbox(
+      "Enable Texture Streaming",
+      "_textureStreamingEnabled",
+      "DebugVisualizer.SetTextureStreaming(_textureStreamingEnabled)",
+      DebugVisualizer.GetTextureStreaming()
+  )
+  w.Checkbox(
+      "Enable Post Processing",
+      "_enablePostProcessing",
+      "PostProcessingDebug.SetPostProcessingEnabled(_enablePostProcessing)",
+      PostProcessingDebug.GetPostProcessingEnabled()
+  )
+  w.Checkbox(
+      "Enable Clouds",
+      "_enableClouds",
+      "VolumeCloud.EnableClouds(_enableClouds)",
+      VolumeCloud.IsEnabledClouds()
+  )
 
   local currentFxValues = {
     FXDebugTools.GetShowExplosionFX(),
