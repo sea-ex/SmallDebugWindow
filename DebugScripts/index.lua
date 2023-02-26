@@ -53,6 +53,12 @@ function MainWindow()
       "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)",
       DebugVisualizer.GetShowTextureStreamingStats()
   )
+  w.Checkbox(
+      "Enable Texture Streaming",
+      "_textureStreamingEnabled",
+      "DebugVisualizer.SetTextureStreaming(_textureStreamingEnabled)",
+      DebugVisualizer.GetTextureStreaming()
+  )
   w.Button("Toggle Localization Debug", "DebugVisualizer.ToggleLocalizationDebugMode()")
 
   actions = {
