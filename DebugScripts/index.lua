@@ -16,8 +16,10 @@ function DebugWindow(title, x, y, w, h)
     return Tools.Window.CreateButton(wnd, action, " [" .. label .. "]")
   end
 
-  function self.Checkbox(label, variableName, script)
-    return Tools.Window.CreateCheckbox(wnd, variableName, script, "  " .. label)
+  function self.Checkbox(label, variableName, script, initialState)
+    local checkboxId = Tools.Window.CreateCheckbox(wnd, variableName, script, "  " .. label)
+    Tools.Window.SetCheckboxState(wnd, checkboxId, initialState)
+    return id
   end
 
   function self.Separator()
@@ -44,14 +46,16 @@ function MainWindow()
 
   w.Separator()
   w.Label("Debug")
-  w.Checkbox("Enable FPS", "_fpsEnabled", "DebugVisualizer.ShowFrameTimes(_fpsEnabled)")
-  w.Checkbox("Enable Localization Debug", "_localizationDebugEnabled", "DebugVisualizer.ToggleLocalizationDebugMode(_localizationDebugEnabled)")
-  w.Checkbox("Enable Texture Streaming Stats", "_textureStreamingStatsEnabled", "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)")
-
-  w.Button("Open VFX test suite", "FXDebugTools.ShowVFXTestSuite()")
+  w.Checkbox("Enable FPS", "_fpsEnabled", "DebugVisualizer.ShowFrameTimes(_fpsEnabled)", DebugVisualizer.GetShowFrameTimes())
+  w.Checkbox(
+      "Enable Texture Streaming Stats",
+      "_textureStreamingStatsEnabled",
+      "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)",
+      DebugVisualizer.GetShowTextureStreamingStats()
+  )
+  w.Button("Toggle Localization Debug", "DebugVisualizer.ToggleLocalizationDebugMode()")
 
   actions = {
-    {label="Open FX debug tools", action="ToggleFXTools"},
     {label="Spawn a new Kerbal at camera position", action="PlaceKerbal"},
     {label="Toggle VAB size limit boxes", action="ToggleOABSizeLimits"},
     {label="Toggle notification visibility", action="ToggleNotificationsCanvasVisibility"}
@@ -71,6 +75,11 @@ function MainWindow()
   for _, action in ipairs(actions) do
     w.Button(action["label"], "DebugVisualizer." .. action["action"] .. "()")
   end
+
+  w.Separator()
+  w.Label("VFX")
+  w.Button("Open VFX test suite", "FXDebugTools.ShowVFXTestSuite()")
+  w.Button("Open FX debug tools", "DebugVisualizer.ToggleFXTools()")
 
   w.Separator()
   w.Label("Quick Actions")
