@@ -9,21 +9,19 @@ This mod provides the following:
 
 ## Features
 
-### Lua Debug Panel
+### Scripting
 
-This is a KSP2 built-in debug panel which can be used to execute .lua files with arguments. Quite useful for quickly running Lua mods or debug scripts.
+- Lua Debug Panel
+  - This is a KSP2 built-in debug panel which can be used to execute .lua files with arguments. Quite useful for quickly running Lua mods or debug scripts.
 
-### Various debug metrics
+### Debug
 
 - Enable FPS
   - Accessible also via the settings currently
-- Enable Localization Debug
+- Toggle Localization Debug
   - Creating a mod and want to modify the texts shown in the UI, or to re-use the same messages? Enable this and the in-game texts show the names of the localized messages instead!
-- Enable Texture Streaming Stats
-  - Feeling like your bad GPU performance might have something to do with texture streaming? Enable this and see for yourself!
-
-### Misc. debug utilities
-
+- Dump VAB parts list into a CSV file
+  - Dump the full parts list from the VAB into a CSV in the game's folder
 - Spawn a new Kerbal at camera position
   - Have you always wanted to test the thermal properties of a Kerbal, but don't want to sacrifice your own Kerbals? Use this to spawn a new one on the camera's position.
 - Toggle VAB size limit boxes
@@ -31,7 +29,18 @@ This is a KSP2 built-in debug panel which can be used to execute .lua files with
 - Toggle notification visibility
   - Annoyed by warnings about your ship bursting into flames? Use this.
 
-### VFX test suite
+### Rendering and VFX
+
+- Enable Texture Streaming Stats
+  - Feeling like your bad GPU performance might have something to do with texture streaming? Enable this and see for yourself!
+- Enable Texture Streaming Streaming
+  - Toggle texture streaming on and off
+- Enable Post Processing
+  - Enable or disable post processing rendering
+- Enable Clouds
+  - Enable or disable volumetric clouds rendering
+
+#### VFX test suite
 
 This is a KSP2 built-in debug widget.
 
@@ -47,7 +56,7 @@ Read details about VFX:
 - Spatial Database
 - VFX Global Settings
 
-### FX debug tools
+#### FX debug tools
 
 This is a KSP2 built-in debug widget.
 
