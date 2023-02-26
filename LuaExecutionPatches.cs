@@ -1,7 +1,7 @@
 ﻿using System;
 using HarmonyLib;
 
-namespace SmallDebugPanel
+namespace SmallDebugWindow
 {
     /// <summary>
     /// Patches the ScriptUIMgr.ExectuteLua (sic) method to actually execute Lua code.

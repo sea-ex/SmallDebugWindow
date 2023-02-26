@@ -6,7 +6,7 @@ function DebugWindow(title, x, y, w, h)
   local wnd = Tools.CreateWindow(x, y, w, h)
   self.wnd = wnd
 
-  Tools.SetWindowTitle(wnd, "")
+  Tools.SetWindowTitle(wnd, title)
 
   function self.Label(label)
     return Tools.Window.CreateLabel(wnd, " " .. label)
@@ -37,12 +37,8 @@ function makeCall(classname, fn, ...)
   return payload
 end
 
-function ScriptingWindow()
- w = DebugWindow("Scripting")
-end
-
 function MainWindow()
-  w = DebugWindow("Simple Debug Window", 200, 200, 300, 300)
+  w = DebugWindow("Small Debug Window", 200, 200, 300, 300)
   w.Label("Scripting")
   w.Button("Open Lua Debug Panel", "ScriptBrowser.ShowScriptBrowserWindow()")
 

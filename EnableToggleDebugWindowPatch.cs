@@ -3,7 +3,7 @@ using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 
-namespace SmallDebugPanel
+namespace SmallDebugWindow
 {
     /// <summary>
     /// Hooks the GameInstance.Awake() function to add the missing binding to
@@ -17,7 +17,7 @@ namespace SmallDebugPanel
         {
             var game = __instance;
 
-            SmallDebugPanel.ModLogger.LogMessage("GameInstance.Awake postfix running");
+            SmallDebugWindow.ModLogger.LogMessage("GameInstance.Awake postfix running");
             KSP.Input.GameInput.GlobalActions globals = game.Input.Global;
 
             if (game.InputManager.TryGetInputDefinition(out KSP.Input.GlobalInputDefinition definition))
@@ -29,12 +29,12 @@ namespace SmallDebugPanel
 
         private static void ToggleScriptUiMgr()
         {
-            SmallDebugPanel.ModLogger.LogDebug("ToggleScriptUiMgr");
+            SmallDebugWindow.ModLogger.LogDebug("ToggleScriptUiMgr");
 
             var mgr = GameObject.FindObjectOfType<KSP.ScriptUI.ScriptUIMgr>();
             if (mgr == null)
             {
-                SmallDebugPanel.ModLogger.LogError("Unable to find GameObject for ScriptUIMgr");
+                SmallDebugWindow.ModLogger.LogError("Unable to find GameObject for ScriptUIMgr");
                 return;
             }
 

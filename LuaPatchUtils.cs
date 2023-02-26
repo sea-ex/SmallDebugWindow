@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmallDebugPanel
+namespace SmallDebugWindow
 {
     public static class LuaPatchUtils
     {
