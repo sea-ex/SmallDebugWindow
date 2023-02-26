@@ -48,6 +48,8 @@ function MainWindow()
   w.Checkbox("Enable Localization Debug", "_localizationDebugEnabled", "DebugVisualizer.ToggleLocalizationDebugMode(_localizationDebugEnabled)")
   w.Checkbox("Enable Texture Streaming Stats", "_textureStreamingStatsEnabled", "DebugVisualizer.ShowTextureStreamingStats(_textureStreamingStatsEnabled)")
 
+  w.Button("Open VFX test suite", "FXDebugTools.ShowVFXTestSuite()")
+
   actions = {
     {label="Open FX debug tools", action="ToggleFXTools"},
     {label="Spawn a new Kerbal at camera position", action="PlaceKerbal"},
