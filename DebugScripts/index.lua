@@ -78,6 +78,51 @@ function MainWindow()
 
   w.Separator()
   w.Label("VFX")
+
+  local currentFxValues = {
+    FXDebugTools.GetShowExplosionFX(),
+    FXDebugTools.GetShowEngineFX(),
+    FXDebugTools.GetShowDetachFX(),
+    FXDebugTools.GetShowSurfaceImpactFX(),
+    FXDebugTools.GetShowGroundBlastFX(),
+    FXDebugTools.GetShowShockConeFX(),
+    FXDebugTools.GetShowContrailsFX(),
+    FXDebugTools.GetShowWingtipVorticesFX(),
+    FXDebugTools.GetShowReentryFX(),
+    FXDebugTools.GetShowPersistantSurfaceContactFX(),
+    FXDebugTools.GetShowWheelSurfaceFX(),
+    FXDebugTools.GetShowKerbalPoofFX(),
+    FXDebugTools.GetShowKerbalFootstepFX(),
+    FXDebugTools.GetShowLaunchSmokeFX(),
+    FXDebugTools.GetShowLaunchFireFX(),
+    FXDebugTools.GetShowLaunchFuelTankIceFX()
+  }
+  local effectsDisabledInitialValue = false
+  for _, val in ipairs(currentFxValues) do
+    if not val then
+        effectsDisabledInitialValue = true
+        break
+    end
+  end
+  w.Checkbox("Disable effects rendering", "_disableEffectsRendering", [[
+FXDebugTools.SetShowExplosionFX(not _disableEffectsRendering)
+FXDebugTools.SetShowEngineFX(not _disableEffectsRendering)
+FXDebugTools.SetShowDetachFX(not _disableEffectsRendering)
+FXDebugTools.SetShowSurfaceImpactFX(not _disableEffectsRendering)
+FXDebugTools.SetShowGroundBlastFX(not _disableEffectsRendering)
+FXDebugTools.SetShowShockConeFX(not _disableEffectsRendering)
+FXDebugTools.SetShowContrailsFX(not _disableEffectsRendering)
+FXDebugTools.SetShowWingtipVorticesFX(not _disableEffectsRendering)
+FXDebugTools.SetShowReentryFX(not _disableEffectsRendering)
+FXDebugTools.SetShowPersistantSurfaceContactFX(not _disableEffectsRendering)
+FXDebugTools.SetShowWheelSurfaceFX(not _disableEffectsRendering)
+FXDebugTools.SetShowKerbalPoofFX(not _disableEffectsRendering)
+FXDebugTools.SetShowKerbalFootstepFX(not _disableEffectsRendering)
+FXDebugTools.SetShowLaunchSmokeFX(not _disableEffectsRendering)
+FXDebugTools.SetShowLaunchFireFX(not _disableEffectsRendering)
+FXDebugTools.SetShowLaunchFuelTankIceFX(not _disableEffectsRendering)
+]], effectsDisabledInitialValue)
+
   w.Button("Open VFX test suite", "FXDebugTools.ShowVFXTestSuite()")
   w.Button("Open FX debug tools", "DebugVisualizer.ToggleFXTools()")
 
