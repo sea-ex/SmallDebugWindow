@@ -60,6 +60,7 @@ function MainWindow()
       DebugVisualizer.GetTextureStreaming()
   )
   w.Button("Toggle Localization Debug", "DebugVisualizer.ToggleLocalizationDebugMode()")
+  w.Button("Dump VAB parts list into a CSV file", "DebugVisualizer.QAPrintPartsInBuildersCSVs()")
 
   actions = {
     {label="Spawn a new Kerbal at camera position", action="PlaceKerbal"},
