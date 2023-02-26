@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace SmallDebugWindow
 {
     public static class LuaPatchUtils

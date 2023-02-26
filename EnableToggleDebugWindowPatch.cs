@@ -1,6 +1,5 @@
-﻿using System;
-using System.Reflection;
 using HarmonyLib;
+using System.Reflection;
 using UnityEngine;
 
 namespace SmallDebugWindow
